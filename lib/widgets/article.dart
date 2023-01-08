@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zenn_reader/widgets/article_title.dart';
 import 'package:zenn_reader/widgets/emoji_card.dart';
 
 class Article extends StatelessWidget {
@@ -7,13 +8,21 @@ class Article extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const EmojiCard(),
-        Column(
-          children: const [
-            Text('Article Title'),
-            Text('Author'),
-          ],
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(
+              left: 8,
+            ),
+            child: Column(
+              children: const [
+                ArticleTitle(),
+                Text('Author'),
+              ],
+            ),
+          ),
         ),
       ],
     );
