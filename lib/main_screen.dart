@@ -10,6 +10,7 @@ class MainScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Zenn Reader'),
       ),
+      backgroundColor: Colors.lightBlueAccent,
       body: Column(
         children: const [
           Article(),
