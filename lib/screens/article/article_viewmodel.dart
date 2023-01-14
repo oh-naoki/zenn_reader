@@ -4,27 +4,31 @@ import 'package:zenn_reader/models/zenn_article.dart';
 import 'package:zenn_reader/repositories/zenn_repository.dart';
 
 part 'article_viewmodel.freezed.dart';
-part 'article_viewmodel.g.dart';
 
 @freezed
 abstract class ArticleScreenState with _$ArticleScreenState {
   const factory ArticleScreenState({
-    @Default(null) List<ZennArticle>? articleList,
+    @Default([]) List<ZennArticle> articles,
   }) = _ArticleScreenState;
 }
 
-final articleViewModelProvider = StateNotifierProvider.autoDispose<ArticleViewModel, ArticleScreenState>((ref) {
+final articleViewModelProvider = StateNotifierProvider<ArticleViewModel, AsyncValue<ArticleScreenState>>((ref) {
   return ArticleViewModel(zennRepository: ref.watch(zennRepositoryProvider));
 });
 
-class ArticleViewModel extends StateNotifier<ArticleScreenState> {
+class ArticleViewModel extends StateNotifier<AsyncValue<ArticleScreenState>> {
   final ZennRepository zennRepository;
 
   ArticleViewModel({
     required this.zennRepository,
-  }) : super(const ArticleScreenState());
+  }) : super(const AsyncLoading<ArticleScreenState>()) {
+    loadArticles();
+  }
 
-  loadArticleList() async {
-    state = state.copyWith(articleList: await zennRepository.fetch());
+  loadArticles() async {
+    state = await AsyncValue.guard(() async {
+      final articles = await zennRepository.fetch();
+      return ArticleScreenState(articles: articles);
+    });
   }
 }

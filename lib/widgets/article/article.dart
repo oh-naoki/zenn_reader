@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:zenn_reader/models/zenn_article.dart';
 import 'package:zenn_reader/widgets/article/article_author.dart';
 import 'package:zenn_reader/widgets/article/article_emoji_card.dart';
 import 'package:zenn_reader/widgets/article/article_title.dart';
 
 class Article extends StatelessWidget {
-  const Article({Key? key}) : super(key: key);
+  final ZennArticle zennArticle;
+
+  const Article({Key? key, required this.zennArticle}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +15,9 @@ class Article extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const ArticleEmojiCard(),
+          ArticleEmojiCard(
+            emoji: zennArticle.emoji,
+          ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(
@@ -20,9 +25,14 @@ class Article extends StatelessWidget {
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const [
-                  ArticleTitle(),
-                  ArticleAuthor(),
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ArticleTitle(
+                    articleTitle: zennArticle.title,
+                  ),
+                  ArticleAuthor(
+                    user: zennArticle.user,
+                  ),
                 ],
               ),
             ),

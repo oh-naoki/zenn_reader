@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:zenn_reader/models/zenn_user.dart';
 
 part 'zenn_article.freezed.dart';
 part 'zenn_article.g.dart';
@@ -10,6 +11,7 @@ abstract class ZennArticle with _$ZennArticle {
     required String title,
     required String emoji,
     required String path,
+    required ZennUser user,
   }) = _ZennArticle;
 
   factory ZennArticle.fromJson(Map<String, dynamic> json) => _$ZennArticleFromJson(json);

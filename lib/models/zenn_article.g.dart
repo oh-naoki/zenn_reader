@@ -12,6 +12,7 @@ _$_ZennArticle _$$_ZennArticleFromJson(Map<String, dynamic> json) =>
       title: json['title'] as String,
       emoji: json['emoji'] as String,
       path: json['path'] as String,
+      user: ZennUser.fromJson(json['user'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_ZennArticleToJson(_$_ZennArticle instance) =>
@@ -20,4 +21,5 @@ Map<String, dynamic> _$$_ZennArticleToJson(_$_ZennArticle instance) =>
       'title': instance.title,
       'emoji': instance.emoji,
       'path': instance.path,
+      'user': instance.user,
     };

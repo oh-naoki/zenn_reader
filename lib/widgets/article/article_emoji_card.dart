@@ -1,23 +1,28 @@
 import 'package:flutter/material.dart';
 
 class ArticleEmojiCard extends StatelessWidget {
-  const ArticleEmojiCard({Key? key}) : super(key: key);
+  final String emoji;
+
+  const ArticleEmojiCard({Key? key, required this.emoji}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Card(
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(12),
+    return SizedBox(
+      width: 80,
+      height: 80,
+      child: Card(
+        elevation: 0,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(12),
+          ),
         ),
-      ),
-      child: Padding(
-        padding: EdgeInsets.all(20),
-        child: Text(
-          '☔',
-          style: TextStyle(
-            fontSize: 32,
+        child: Center(
+          child: Text(
+            emoji,
+            style: const TextStyle(
+              fontSize: 32,
+            ),
           ),
         ),
       ),

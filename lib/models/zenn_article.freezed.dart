@@ -24,6 +24,7 @@ mixin _$ZennArticle {
   String get title => throw _privateConstructorUsedError;
   String get emoji => throw _privateConstructorUsedError;
   String get path => throw _privateConstructorUsedError;
+  ZennUser get user => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +38,9 @@ abstract class $ZennArticleCopyWith<$Res> {
           ZennArticle value, $Res Function(ZennArticle) then) =
       _$ZennArticleCopyWithImpl<$Res, ZennArticle>;
   @useResult
-  $Res call({int id, String title, String emoji, String path});
+  $Res call({int id, String title, String emoji, String path, ZennUser user});
+
+  $ZennUserCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -57,6 +60,7 @@ class _$ZennArticleCopyWithImpl<$Res, $Val extends ZennArticle>
     Object? title = null,
     Object? emoji = null,
     Object? path = null,
+    Object? user = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -75,7 +79,19 @@ class _$ZennArticleCopyWithImpl<$Res, $Val extends ZennArticle>
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
               as String,
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as ZennUser,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ZennUserCopyWith<$Res> get user {
+    return $ZennUserCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value) as $Val);
+    });
   }
 }
 
@@ -87,7 +103,10 @@ abstract class _$$_ZennArticleCopyWith<$Res>
       __$$_ZennArticleCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String title, String emoji, String path});
+  $Res call({int id, String title, String emoji, String path, ZennUser user});
+
+  @override
+  $ZennUserCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -105,6 +124,7 @@ class __$$_ZennArticleCopyWithImpl<$Res>
     Object? title = null,
     Object? emoji = null,
     Object? path = null,
+    Object? user = null,
   }) {
     return _then(_$_ZennArticle(
       id: null == id
@@ -123,6 +143,10 @@ class __$$_ZennArticleCopyWithImpl<$Res>
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
               as String,
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as ZennUser,
     ));
   }
 }
@@ -134,7 +158,8 @@ class _$_ZennArticle implements _ZennArticle {
       {required this.id,
       required this.title,
       required this.emoji,
-      required this.path});
+      required this.path,
+      required this.user});
 
   factory _$_ZennArticle.fromJson(Map<String, dynamic> json) =>
       _$$_ZennArticleFromJson(json);
@@ -147,10 +172,12 @@ class _$_ZennArticle implements _ZennArticle {
   final String emoji;
   @override
   final String path;
+  @override
+  final ZennUser user;
 
   @override
   String toString() {
-    return 'ZennArticle(id: $id, title: $title, emoji: $emoji, path: $path)';
+    return 'ZennArticle(id: $id, title: $title, emoji: $emoji, path: $path, user: $user)';
   }
 
   @override
@@ -161,12 +188,13 @@ class _$_ZennArticle implements _ZennArticle {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.emoji, emoji) || other.emoji == emoji) &&
-            (identical(other.path, path) || other.path == path));
+            (identical(other.path, path) || other.path == path) &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, emoji, path);
+  int get hashCode => Object.hash(runtimeType, id, title, emoji, path, user);
 
   @JsonKey(ignore: true)
   @override
@@ -187,7 +215,8 @@ abstract class _ZennArticle implements ZennArticle {
       {required final int id,
       required final String title,
       required final String emoji,
-      required final String path}) = _$_ZennArticle;
+      required final String path,
+      required final ZennUser user}) = _$_ZennArticle;
 
   factory _ZennArticle.fromJson(Map<String, dynamic> json) =
       _$_ZennArticle.fromJson;
@@ -200,6 +229,8 @@ abstract class _ZennArticle implements ZennArticle {
   String get emoji;
   @override
   String get path;
+  @override
+  ZennUser get user;
   @override
   @JsonKey(ignore: true)
   _$$_ZennArticleCopyWith<_$_ZennArticle> get copyWith =>

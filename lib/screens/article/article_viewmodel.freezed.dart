@@ -14,15 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ArticleScreenState _$ArticleScreenStateFromJson(Map<String, dynamic> json) {
-  return _ArticleScreenState.fromJson(json);
-}
-
 /// @nodoc
 mixin _$ArticleScreenState {
-  List<ZennArticle>? get articleList => throw _privateConstructorUsedError;
+  List<ZennArticle> get articles => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ArticleScreenStateCopyWith<ArticleScreenState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -34,7 +29,7 @@ abstract class $ArticleScreenStateCopyWith<$Res> {
           ArticleScreenState value, $Res Function(ArticleScreenState) then) =
       _$ArticleScreenStateCopyWithImpl<$Res, ArticleScreenState>;
   @useResult
-  $Res call({List<ZennArticle>? articleList});
+  $Res call({List<ZennArticle> articles});
 }
 
 /// @nodoc
@@ -50,13 +45,13 @@ class _$ArticleScreenStateCopyWithImpl<$Res, $Val extends ArticleScreenState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? articleList = freezed,
+    Object? articles = null,
   }) {
     return _then(_value.copyWith(
-      articleList: freezed == articleList
-          ? _value.articleList
-          : articleList // ignore: cast_nullable_to_non_nullable
-              as List<ZennArticle>?,
+      articles: null == articles
+          ? _value.articles
+          : articles // ignore: cast_nullable_to_non_nullable
+              as List<ZennArticle>,
     ) as $Val);
   }
 }
@@ -69,7 +64,7 @@ abstract class _$$_ArticleScreenStateCopyWith<$Res>
       __$$_ArticleScreenStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ZennArticle>? articleList});
+  $Res call({List<ZennArticle> articles});
 }
 
 /// @nodoc
@@ -83,40 +78,35 @@ class __$$_ArticleScreenStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? articleList = freezed,
+    Object? articles = null,
   }) {
     return _then(_$_ArticleScreenState(
-      articleList: freezed == articleList
-          ? _value._articleList
-          : articleList // ignore: cast_nullable_to_non_nullable
-              as List<ZennArticle>?,
+      articles: null == articles
+          ? _value._articles
+          : articles // ignore: cast_nullable_to_non_nullable
+              as List<ZennArticle>,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_ArticleScreenState implements _ArticleScreenState {
-  const _$_ArticleScreenState({final List<ZennArticle>? articleList = null})
-      : _articleList = articleList;
+  const _$_ArticleScreenState({final List<ZennArticle> articles = const []})
+      : _articles = articles;
 
-  factory _$_ArticleScreenState.fromJson(Map<String, dynamic> json) =>
-      _$$_ArticleScreenStateFromJson(json);
-
-  final List<ZennArticle>? _articleList;
+  final List<ZennArticle> _articles;
   @override
   @JsonKey()
-  List<ZennArticle>? get articleList {
-    final value = _articleList;
-    if (value == null) return null;
-    if (_articleList is EqualUnmodifiableListView) return _articleList;
+  List<ZennArticle> get articles {
+    if (_articles is EqualUnmodifiableListView) return _articles;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_articles);
   }
 
   @override
   String toString() {
-    return 'ArticleScreenState(articleList: $articleList)';
+    return 'ArticleScreenState(articles: $articles)';
   }
 
   @override
@@ -124,14 +114,12 @@ class _$_ArticleScreenState implements _ArticleScreenState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ArticleScreenState &&
-            const DeepCollectionEquality()
-                .equals(other._articleList, _articleList));
+            const DeepCollectionEquality().equals(other._articles, _articles));
   }
 
-  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_articleList));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_articles));
 
   @JsonKey(ignore: true)
   @override
@@ -139,24 +127,14 @@ class _$_ArticleScreenState implements _ArticleScreenState {
   _$$_ArticleScreenStateCopyWith<_$_ArticleScreenState> get copyWith =>
       __$$_ArticleScreenStateCopyWithImpl<_$_ArticleScreenState>(
           this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_ArticleScreenStateToJson(
-      this,
-    );
-  }
 }
 
 abstract class _ArticleScreenState implements ArticleScreenState {
-  const factory _ArticleScreenState({final List<ZennArticle>? articleList}) =
+  const factory _ArticleScreenState({final List<ZennArticle> articles}) =
       _$_ArticleScreenState;
 
-  factory _ArticleScreenState.fromJson(Map<String, dynamic> json) =
-      _$_ArticleScreenState.fromJson;
-
   @override
-  List<ZennArticle>? get articleList;
+  List<ZennArticle> get articles;
   @override
   @JsonKey(ignore: true)
   _$$_ArticleScreenStateCopyWith<_$_ArticleScreenState> get copyWith =>
