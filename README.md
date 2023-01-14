@@ -1,6 +1,8 @@
 # zenn_reader
 
-A flutter sutydy app
+A flutter study app
+![Screenshot_1673690798](https://user-images.githubusercontent.com/16508442/212467655-150d5bc9-6420-45c0-83dd-d76c85720f14.png)
+
 
 ## Getting Started
 
