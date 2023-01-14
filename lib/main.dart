@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zenn_reader/main_screen.dart';
+import 'package:zenn_reader/screens/article/article_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MainScreen(),
+      home: const ArticleScreen(),
     );
   }
 }
