@@ -12,32 +12,35 @@ class Article extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IntrinsicHeight(
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ArticleEmojiCard(
-            emoji: zennArticle.emoji,
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(
-                left: 8,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ArticleTitle(
-                    articleTitle: zennArticle.title,
-                  ),
-                  ArticleAuthor(
-                    user: zennArticle.user,
-                  ),
-                ],
+      child: GestureDetector(
+        onTap: () {},
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ArticleEmojiCard(
+              emoji: zennArticle.emoji,
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  left: 8,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ArticleTitle(
+                      articleTitle: zennArticle.title,
+                    ),
+                    ArticleAuthor(
+                      user: zennArticle.user,
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

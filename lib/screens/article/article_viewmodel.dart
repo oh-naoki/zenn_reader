@@ -25,7 +25,7 @@ class ArticleViewModel extends StateNotifier<AsyncValue<ArticleScreenState>> {
     loadArticles();
   }
 
-  loadArticles() async {
+  Future<void> loadArticles() async {
     state = await AsyncValue.guard(() async {
       final articles = await zennRepository.fetch();
       return ArticleScreenState(articles: articles);

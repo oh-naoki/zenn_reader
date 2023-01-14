@@ -11,17 +11,25 @@ class ArticleBody extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final articles = ref.watch(articleViewModelProvider);
+    final viewModel = ref.read(articleViewModelProvider.notifier);
     return articles.when(
-      loading: () => const CircularProgressIndicator(),
-      error: (err, stack) => const Text("error"),
+      loading: () => const Center(
+        child: CircularProgressIndicator(),
+      ),
+      error: (err, stack) => const Center(
+        child: Text("error"),
+      ),
       data: (viewState) {
-        return ListView(
-          padding: const EdgeInsets.all(8),
-          children: viewState.articles.map((article) {
-            return Article(
-              zennArticle: article,
-            );
-          }).toList(),
+        return RefreshIndicator(
+          onRefresh: viewModel.loadArticles,
+          child: ListView(
+            padding: const EdgeInsets.all(8),
+            children: viewState.articles.map((article) {
+              return Article(
+                zennArticle: article,
+              );
+            }).toList(),
+          ),
         );
       },
     );
