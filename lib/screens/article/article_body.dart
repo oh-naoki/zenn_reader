@@ -10,9 +10,9 @@ class ArticleBody extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final articles = ref.watch(articleViewModelProvider);
+    final viewState = ref.watch(articleViewModelProvider);
     final viewModel = ref.read(articleViewModelProvider.notifier);
-    return articles.when(
+    return viewState.when(
       loading: () => const Center(
         child: CircularProgressIndicator(),
       ),
