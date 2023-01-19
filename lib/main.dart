@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:zenn_reader/screens/article/article_screen.dart';
+import 'package:zenn_reader/go_route.dart';
 
 void main() {
   runApp(const ProviderScope(
@@ -14,12 +14,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ArticleScreen(),
+      routerConfig: router,
     );
   }
 }

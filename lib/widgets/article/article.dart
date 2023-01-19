@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:zenn_reader/models/zenn_article.dart';
 import 'package:zenn_reader/widgets/article/article_author.dart';
 import 'package:zenn_reader/widgets/article/article_emoji_card.dart';
@@ -11,9 +12,9 @@ class Article extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IntrinsicHeight(
-      child: GestureDetector(
-        onTap: () {},
+    return GestureDetector(
+      onTap: () => context.go('/detail'),
+      child: IntrinsicHeight(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
