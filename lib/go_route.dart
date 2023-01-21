@@ -6,10 +6,12 @@ final router = GoRouter(routes: [
   GoRoute(
     path: '/',
     builder: (_, __) => const ArticleScreen(),
+    routes: [
+      GoRoute(
+          path: 'detail/:articleId',
+          builder: (_, state) {
+            return ArticleDetailScreen(articleId: int.parse(state.params['articleId']!));
+          }),
+    ],
   ),
-  GoRoute(
-      path: '/detail/:articleId',
-      builder: (_, state) {
-        return ArticleDetailScreen(articleId: int.parse(state.params['articleId']!));
-      }),
 ]);
