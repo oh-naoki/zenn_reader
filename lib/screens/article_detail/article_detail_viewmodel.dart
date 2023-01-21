@@ -25,6 +25,7 @@ class ArticleDetailViewModel extends StateNotifier<AsyncValue<ArticleDetailScree
 
   loadArticle(int id) async {
     state = await AsyncValue.guard(() async {
+      // UseCase層を設けるのが良さそう
       final article = await zennRepository.fetch().then((articles) {
         return articles.firstWhere((article) => article.id == id);
       });

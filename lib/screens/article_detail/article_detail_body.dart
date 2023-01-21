@@ -32,6 +32,7 @@ class ArticleDetailBody extends ConsumerWidget {
             ArticleDetailEmojiHeader(
               emoji: viewState.article.emoji,
             ),
+            // ここの Widget 分割は適当
             ArticleDetailMain(
               title: viewState.article.title,
               likedCount: viewState.article.likedCount,
