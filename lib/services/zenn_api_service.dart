@@ -5,7 +5,7 @@ import 'package:zenn_reader/models/zenn_article.dart';
 
 part 'zenn_api_service.g.dart';
 
-final zennApiServiceProvider = Provider((ref) => ZennApiService(Dio()));
+final zennApiServiceProvider = Provider.autoDispose((ref) => ZennApiService(Dio()));
 
 @RestApi(baseUrl: "https://zenn-api.vercel.app/api/")
 abstract class ZennApiService {
