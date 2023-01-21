@@ -1,13 +1,25 @@
 import 'package:flutter/material.dart';
 
 class ArticleDetailMain extends StatelessWidget {
-  const ArticleDetailMain({Key? key}) : super(key: key);
+  final String title;
+  final int bodyLettersCount;
+  final int likedCount;
+  final int commentsCount;
+
+  const ArticleDetailMain({
+    Key? key,
+    required this.title,
+    required this.bodyLettersCount,
+    required this.likedCount,
+    required this.commentsCount,
+  }) : super(key: key);
 
   Widget listTile(String title, String label) {
     return Container(
+      width: 240,
       margin: const EdgeInsets.only(top: 16),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(title),
           Text(label),
@@ -25,15 +37,16 @@ class ArticleDetailMain extends StatelessWidget {
           Container(
             margin: const EdgeInsets.only(top: 8),
             child: Text(
-              "Title",
-              style: TextStyle(
-                fontSize: 32,
+              title,
+              style: const TextStyle(
+                fontSize: 20,
               ),
+              textAlign: TextAlign.center,
             ),
           ),
-          listTile('Name ', 'oh-naoki'),
-          listTile('Name ', 'oh-naoki'),
-          listTile('Name ', 'oh-naoki'),
+          listTile('文字数', bodyLettersCount.toString()),
+          listTile('お気に入り数', likedCount.toString()),
+          listTile('コメント数', commentsCount.toString()),
         ],
       ),
     );

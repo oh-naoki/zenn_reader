@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ArticleDetailEmojiHeader extends StatelessWidget {
+  final String emoji;
+
   const ArticleDetailEmojiHeader({
     Key? key,
+    required this.emoji,
   }) : super(key: key);
 
   @override
@@ -14,9 +17,9 @@ class ArticleDetailEmojiHeader extends StatelessWidget {
         color: Colors.white,
         shape: BoxShape.circle,
       ),
-      child: const Text(
-        "☔",
-        style: TextStyle(
+      child: Text(
+        emoji,
+        style: const TextStyle(
           fontSize: 64,
         ),
       ),

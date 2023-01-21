@@ -13,7 +13,7 @@ class Article extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.go('/detail'),
+      onTap: () => context.go('/detail/${zennArticle.id}'),
       child: IntrinsicHeight(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -24,6 +24,9 @@ mixin _$ZennArticle {
   String get title => throw _privateConstructorUsedError;
   String get emoji => throw _privateConstructorUsedError;
   String get path => throw _privateConstructorUsedError;
+  int get bodyLettersCount => throw _privateConstructorUsedError;
+  int get likedCount => throw _privateConstructorUsedError;
+  int get commentsCount => throw _privateConstructorUsedError;
   ZennUser get user => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,7 +41,15 @@ abstract class $ZennArticleCopyWith<$Res> {
           ZennArticle value, $Res Function(ZennArticle) then) =
       _$ZennArticleCopyWithImpl<$Res, ZennArticle>;
   @useResult
-  $Res call({int id, String title, String emoji, String path, ZennUser user});
+  $Res call(
+      {int id,
+      String title,
+      String emoji,
+      String path,
+      int bodyLettersCount,
+      int likedCount,
+      int commentsCount,
+      ZennUser user});
 
   $ZennUserCopyWith<$Res> get user;
 }
@@ -60,6 +71,9 @@ class _$ZennArticleCopyWithImpl<$Res, $Val extends ZennArticle>
     Object? title = null,
     Object? emoji = null,
     Object? path = null,
+    Object? bodyLettersCount = null,
+    Object? likedCount = null,
+    Object? commentsCount = null,
     Object? user = null,
   }) {
     return _then(_value.copyWith(
@@ -79,6 +93,18 @@ class _$ZennArticleCopyWithImpl<$Res, $Val extends ZennArticle>
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
               as String,
+      bodyLettersCount: null == bodyLettersCount
+          ? _value.bodyLettersCount
+          : bodyLettersCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      likedCount: null == likedCount
+          ? _value.likedCount
+          : likedCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      commentsCount: null == commentsCount
+          ? _value.commentsCount
+          : commentsCount // ignore: cast_nullable_to_non_nullable
+              as int,
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -103,7 +129,15 @@ abstract class _$$_ZennArticleCopyWith<$Res>
       __$$_ZennArticleCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String title, String emoji, String path, ZennUser user});
+  $Res call(
+      {int id,
+      String title,
+      String emoji,
+      String path,
+      int bodyLettersCount,
+      int likedCount,
+      int commentsCount,
+      ZennUser user});
 
   @override
   $ZennUserCopyWith<$Res> get user;
@@ -124,6 +158,9 @@ class __$$_ZennArticleCopyWithImpl<$Res>
     Object? title = null,
     Object? emoji = null,
     Object? path = null,
+    Object? bodyLettersCount = null,
+    Object? likedCount = null,
+    Object? commentsCount = null,
     Object? user = null,
   }) {
     return _then(_$_ZennArticle(
@@ -143,6 +180,18 @@ class __$$_ZennArticleCopyWithImpl<$Res>
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
               as String,
+      bodyLettersCount: null == bodyLettersCount
+          ? _value.bodyLettersCount
+          : bodyLettersCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      likedCount: null == likedCount
+          ? _value.likedCount
+          : likedCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      commentsCount: null == commentsCount
+          ? _value.commentsCount
+          : commentsCount // ignore: cast_nullable_to_non_nullable
+              as int,
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -159,6 +208,9 @@ class _$_ZennArticle implements _ZennArticle {
       required this.title,
       required this.emoji,
       required this.path,
+      required this.bodyLettersCount,
+      required this.likedCount,
+      required this.commentsCount,
       required this.user});
 
   factory _$_ZennArticle.fromJson(Map<String, dynamic> json) =>
@@ -173,11 +225,17 @@ class _$_ZennArticle implements _ZennArticle {
   @override
   final String path;
   @override
+  final int bodyLettersCount;
+  @override
+  final int likedCount;
+  @override
+  final int commentsCount;
+  @override
   final ZennUser user;
 
   @override
   String toString() {
-    return 'ZennArticle(id: $id, title: $title, emoji: $emoji, path: $path, user: $user)';
+    return 'ZennArticle(id: $id, title: $title, emoji: $emoji, path: $path, bodyLettersCount: $bodyLettersCount, likedCount: $likedCount, commentsCount: $commentsCount, user: $user)';
   }
 
   @override
@@ -189,12 +247,19 @@ class _$_ZennArticle implements _ZennArticle {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.emoji, emoji) || other.emoji == emoji) &&
             (identical(other.path, path) || other.path == path) &&
+            (identical(other.bodyLettersCount, bodyLettersCount) ||
+                other.bodyLettersCount == bodyLettersCount) &&
+            (identical(other.likedCount, likedCount) ||
+                other.likedCount == likedCount) &&
+            (identical(other.commentsCount, commentsCount) ||
+                other.commentsCount == commentsCount) &&
             (identical(other.user, user) || other.user == user));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, emoji, path, user);
+  int get hashCode => Object.hash(runtimeType, id, title, emoji, path,
+      bodyLettersCount, likedCount, commentsCount, user);
 
   @JsonKey(ignore: true)
   @override
@@ -216,6 +281,9 @@ abstract class _ZennArticle implements ZennArticle {
       required final String title,
       required final String emoji,
       required final String path,
+      required final int bodyLettersCount,
+      required final int likedCount,
+      required final int commentsCount,
       required final ZennUser user}) = _$_ZennArticle;
 
   factory _ZennArticle.fromJson(Map<String, dynamic> json) =
@@ -229,6 +297,12 @@ abstract class _ZennArticle implements ZennArticle {
   String get emoji;
   @override
   String get path;
+  @override
+  int get bodyLettersCount;
+  @override
+  int get likedCount;
+  @override
+  int get commentsCount;
   @override
   ZennUser get user;
   @override

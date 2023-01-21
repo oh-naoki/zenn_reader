@@ -11,6 +11,9 @@ abstract class ZennArticle with _$ZennArticle {
     required String title,
     required String emoji,
     required String path,
+    required int bodyLettersCount,
+    required int likedCount,
+    required int commentsCount,
     required ZennUser user,
   }) = _ZennArticle;
 

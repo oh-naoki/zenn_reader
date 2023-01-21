@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:zenn_reader/screens/article/article_viewmodel.dart';
+import 'package:zenn_reader/screens/article_detail/article_detail_viewmodel.dart';
 import 'package:zenn_reader/widgets/article_detail/article_detail_emoji_header.dart';
 import 'package:zenn_reader/widgets/article_detail/article_detail_main.dart';
 
 class ArticleDetailBody extends ConsumerWidget {
+  final int articleId;
+
   const ArticleDetailBody({
     Key? key,
+    required this.articleId,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // TODO: Replace
-    final viewState = ref.watch(articleViewModelProvider);
+    final viewState = ref.watch(articleDetailViewModelProvider);
+    final viewModel = ref.watch(articleDetailViewModelProvider.notifier);
+
+    viewModel.loadArticle(articleId);
+
     return viewState.when(
       loading: () => const Center(
         child: CircularProgressIndicator(),
@@ -23,8 +29,15 @@ class ArticleDetailBody extends ConsumerWidget {
       data: (viewState) {
         return Column(
           children: [
-            ArticleDetailEmojiHeader(),
-            ArticleDetailMain(),
+            ArticleDetailEmojiHeader(
+              emoji: viewState.article.emoji,
+            ),
+            ArticleDetailMain(
+              title: viewState.article.title,
+              likedCount: viewState.article.likedCount,
+              bodyLettersCount: viewState.article.bodyLettersCount,
+              commentsCount: viewState.article.commentsCount,
+            ),
           ],
         );
       },

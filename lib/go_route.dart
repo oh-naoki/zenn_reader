@@ -8,7 +8,8 @@ final router = GoRouter(routes: [
     builder: (_, __) => const ArticleScreen(),
   ),
   GoRoute(
-    path: '/detail',
-    builder: (_, __) => const ArticleDetailScreen(),
-  ),
+      path: '/detail/:articleId',
+      builder: (_, state) {
+        return ArticleDetailScreen(articleId: int.parse(state.params['articleId']!));
+      }),
 ]);
