@@ -15,9 +15,7 @@ class ArticleDetailBody extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final viewState = ref.watch(articleDetailViewModelProvider);
-    final viewModel = ref.watch(articleDetailViewModelProvider.notifier);
-
-    viewModel.loadArticle(articleId);
+    ref.read(articleDetailViewModelProvider.notifier).loadArticle(articleId);
 
     return viewState.when(
       loading: () => const Center(

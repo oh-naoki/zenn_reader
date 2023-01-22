@@ -13,7 +13,7 @@ abstract class ArticleDetailScreenState with _$ArticleDetailScreenState {
 }
 
 final articleDetailViewModelProvider = StateNotifierProvider.autoDispose<ArticleDetailViewModel, AsyncValue<ArticleDetailScreenState>>((ref) {
-  return ArticleDetailViewModel(zennRepository: ref.watch(zennRepositoryProvider));
+  return ArticleDetailViewModel(zennRepository: ref.read(zennRepositoryProvider));
 });
 
 class ArticleDetailViewModel extends StateNotifier<AsyncValue<ArticleDetailScreenState>> {
