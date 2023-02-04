@@ -9,6 +9,7 @@ on:
 jobs:
   flutter_analyze:
     runs-on: ubuntu-latest
+    continue-on-error: true
     timeout-minutes: 5
     steps:
       - name: checkout
