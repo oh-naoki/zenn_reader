@@ -38,6 +38,7 @@ jobs:
         run: flutter analyze
 
       - name: Danger
+        if: always()
         uses: danger/danger-js@11.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
