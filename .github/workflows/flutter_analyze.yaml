@@ -1,9 +1,6 @@
 name: flutter analyze
 on:
   pull_request:
-    types: [ opened, synchronized ]
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
