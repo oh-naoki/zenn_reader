@@ -34,10 +34,10 @@ jobs:
       - name: flutter analyze
         run: flutter analyze --no-fatal-infos > flutter_analyze_report.txt
 
-      - name: Use Node.js 12.x
+      - name: Use Node.js
         uses: actions/setup-node@master
         with:
-          node-version: 12.x
+          node-version: 16
 
       - name: add packages
         run: |
@@ -46,7 +46,7 @@ jobs:
 
       - name: yarn install
         run: yarn install
-        
+
       - name: Danger
         run: yarn danger ci
         env:
