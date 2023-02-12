@@ -34,12 +34,20 @@ jobs:
       - name: flutter analyze
         run: flutter analyze --no-fatal-infos > flutter_analyze_report.txt
 
+      - name: Use Node.js 12.x
+          uses: actions/setup-node@master
+          with:
+            node-version: 12.x
+      - name: add packages
+          run: |
+            yarn add danger
+            yarn add dangerjs-flutter-analyze-plugin
+      - name: yarn install
+          run: yarn install
       - name: Danger
-        if: always()
-        uses: danger/danger-js@11.0.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DANGER_DISABLE_TRANSPILATION: true
+          run: yarn danger ci
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   flutter_test:
     runs-on: ubuntu-latest
