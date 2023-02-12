@@ -1,9 +1,6 @@
 name: flutter analyze
 on:
   pull_request:
-    types: [ opened, synchronized ]
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
@@ -35,14 +32,20 @@ jobs:
         run: flutter pub get
 
       - name: flutter analyze
-        run: flutter analyze
+        run: flutter analyze --no-fatal-infos > flutter_analyze_report.txt
 
-      - name: Danger
-        if: always()
-        uses: danger/danger-js@11.0.2
+      - name: Use Node.js
+        uses: actions/setup-node@master
+        with:
+          node-version: 16
+
+      - name: yarn install
+        run: yarn install --frozen-lockfile
+
+      - name: run danger
+        run: yarn danger ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DANGER_DISABLE_TRANSPILATION: true
 
   flutter_test:
     runs-on: ubuntu-latest

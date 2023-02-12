@@ -1,0 +1,8 @@
+{
+  "license": "MIT",
+  "devDependencies": {
+    "danger": "^11.0.0",
+    "dangerjs-flutter-analyze-plugin": "^1.0.0",
+    "typescript": "^4.7.0"
+  }
+}
