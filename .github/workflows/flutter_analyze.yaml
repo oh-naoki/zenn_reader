@@ -43,12 +43,7 @@ jobs:
         run: |
           yarn add danger
           yarn add dangerjs-flutter-analyze-plugin
-
-      - name: yarn install
-        run: yarn install
-
-      - name: Danger
-        run: yarn danger ci
+          yarn danger ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
